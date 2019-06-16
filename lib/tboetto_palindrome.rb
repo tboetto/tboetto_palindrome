@@ -1,16 +1,30 @@
 require "tboetto_palindrome/version"
 
 # Modify the String class to check for palindromes
-class String
+module TboettoPalindrome
   # Returns true for palindrome, otherwise false.
   def palindrome?
-    processed_content == processed_content.reverse
+    if processed_content.empty?
+      false
+    else
+      processed_content == processed_content.reverse
+    end
   end
 
   private
 
   # Processes string/integer to be compared
   def processed_content
-    self.scan(/[a-z]/i).join.downcase
+    self.to_s.scan(/[a-z0-9]/i).join.downcase
   end
+end
+
+# Allow for all strings to test for Palindrome's natively
+class String
+  include TboettoPalindrome
+end
+
+# Allow for integers to test for Palindrome's natively
+class Integer
+  include TboettoPalindrome
 end

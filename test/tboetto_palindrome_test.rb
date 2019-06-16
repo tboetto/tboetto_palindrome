@@ -18,5 +18,12 @@ class TboettoPalindromeTest < Minitest::Test
     assert "Madam, I'm Adam.".palindrome?
   end
 
+  def test_integer_non_palindrome
+    refute 1234567.palindrome?
+  end
+
+  def test_integer_palindrome
+    assert 12344321.palindrome?
+  end
 
 end
