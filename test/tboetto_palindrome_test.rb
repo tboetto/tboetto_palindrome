@@ -26,4 +26,8 @@ class TboettoPalindromeTest < Minitest::Test
     assert 12344321.palindrome?
   end
 
+  def test_empty_string_palindrome
+    refute "".palindrome?
+  end
+
 end
